@@ -1,0 +1,90 @@
+{
+  "mainMenu": [
+    {
+      "name": "Home",
+      "link": "#",
+      "submenu": [
+        {
+          "name": "Home",
+          "link": "/"
+        },
+        {
+          "name": "Home Minimal",
+          "link": "/home-2"
+        }
+      ]
+    },
+    {
+      "name": "Featured",
+      "link": "/featured"
+    },
+    {
+      "name": "Latest",
+      "link": "/blog"
+    },
+    {
+      "name": "About",
+      "link": "/about"
+    },
+    {
+      "name": "Pages",
+      "link": "#",
+      "submenu": [
+        {
+          "name": "Archive",
+          "link": "/blog/archive"
+        },
+        {
+          "name": "Author",
+          "link": "/author"
+        },
+        {
+          "name": "Author Single",
+          "link": "/author/ann-monika"
+        },
+        {
+          "name": "Elements",
+          "link": "/blog/elements"
+        },
+        {
+          "name": "Tags",
+          "link": "/tags"
+        },
+        {
+          "name": "Categories",
+          "link": "/categories"
+        },
+        {
+          "name": "Tag Single",
+          "link": "/tags/lifestyle"
+        },
+        {
+          "name": "Category Single",
+          "link": "/categories/tech"
+        },
+        {
+          "name": "Privacy",
+          "link": "/privacy"
+        },
+        {
+          "name": "Terms of service",
+          "link": "/terms-of-service"
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "link": "/contact"
+    }
+  ],
+  "footerMenu": [
+    {
+      "name": "Terms of service",
+      "link": "/terms-of-service"
+    },
+    {
+      "name": "Privacy policy",
+      "link": "/privacy"
+    }
+  ]
+}

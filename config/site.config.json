@@ -1,0 +1,41 @@
+{
+  "metaData": {
+    "title" : "Tushi | Minimal NextJS Blog Template",
+    "description" : "Tushi - a minimal nextjs blog template",
+    "author" : "Platol",
+    "keyword" : "blog, nextjs blog, react, nextjs, next.js, next js, tushi, minimal",
+    "ogImage" : "/images/ogimage.jpg"
+  },
+  "baseURL" : "https://tushi-nextjs.vercel.app/",
+  "logo" : "/images/logo.png",
+  "logo_light" : "/images/logo-light.png",
+  "logoText" : "Tushi",
+  "favicon" : "/images/favicon.png",
+  "postPerPage" : 6,
+  "homeTwoPostPerPage" : 4,
+
+  "copyright" : "© 2023 Tushi. All rights reserved.",
+
+  "socialLinks" : [
+    {
+      "name": "Facebook",
+      "icon": "BsFacebook",
+      "link": "https://facebook.com/"
+    },
+    {
+      "name": "Twitter",
+      "icon": "BsTwitter",
+      "link": "https://twitter.com/"
+    },
+    {
+      "name": "Linkedin",
+      "icon": "BsLinkedin",
+      "link": "https://linkedin.com/"
+    },
+    {
+      "name": "Github",
+      "icon": "BsGithub",
+      "link": "https://github.com/"
+    }
+  ]
+}

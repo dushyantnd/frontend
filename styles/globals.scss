@@ -1,0 +1,6 @@
+.transition {
+  transition: 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.blur {
+  filter: grayscale(100%) blur(2px);
+}
