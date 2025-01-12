@@ -1,20 +1,20 @@
 {
   "metaData": {
-    "title" : "Tushi | Minimal NextJS Blog Template",
-    "description" : "Tushi - a minimal nextjs blog template",
-    "author" : "Platol",
-    "keyword" : "blog, nextjs blog, react, nextjs, next.js, next js, tushi, minimal",
+    "title" : "Uspupils | Sarkari Exam , Sarkari Result 2025 , Scholarships, Abroad scholarships ",
+    "description" : "Sarkari Result,recruitment 2025 and scholarships provides Rojgar, vacancies, jobs details of all govt exam and scholarships.",
+    "author" : "Admin",
+    "keyword" : "Sarkari Result, scholarships,recruitment 2025, Uspupils, Sarkari Exam, Sarkari Result 2025, Scholarships, Abroad scholarships ",
     "ogImage" : "/images/ogimage.jpg"
   },
-  "baseURL" : "https://tushi-nextjs.vercel.app/",
+  "baseURL" : "https://uspupils.com/",
   "logo" : "/images/logo.png",
   "logo_light" : "/images/logo-light.png",
-  "logoText" : "Tushi",
+  "logoText" : "Uspupils",
   "favicon" : "/images/favicon.png",
   "postPerPage" : 6,
   "homeTwoPostPerPage" : 4,
 
-  "copyright" : "© 2023 Tushi. All rights reserved.",
+  "copyright" : "© 2025 Uspupils. All rights reserved.",
 
   "socialLinks" : [
     {

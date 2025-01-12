@@ -5,6 +5,9 @@ const nextConfig = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  images: {
+    domains: ["res.cloudinary.com","test.com"], // Ensure this matches the domain exactly
+  },
 };
 
 module.exports = nextConfig;

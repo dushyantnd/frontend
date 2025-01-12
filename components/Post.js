@@ -1,4 +1,5 @@
 import BlurImage from "@/components/BlurImage";
+import React, { useEffect, useState } from "react";
 import { formatDate } from "@/utils/formatDate";
 import { Calender, Clock } from "@/utils/Icons";
 import { readingTime } from "@/utils/readingTime";
@@ -6,41 +7,133 @@ import { slugify } from "@/utils/slugify";
 import { truncateString } from "@/utils/truncateString";
 import Link from "next/link";
 
+
+// "submenu": [
+//   {
+//     "name": "All Scholarships",
+//     "link": "/scholarships"
+//   },
+//   {
+//     "name": "Abroad",
+//     "link": "/author"
+//   },
+//   {
+//     "name": "for Bachelors",
+//     "link": "/author/ann-monika"
+//   },
+//   {
+//     "name": "For Masters",
+//     "link": "/blog/elements"
+//   },
+//   {
+//     "name": "High/Secondary School",
+//     "link": "/tags"
+//   },
+//   {
+//     "name": "For SC/ST",
+//     "link": "/categories"
+//   },
+//   {
+//     "name": "For Medicine",
+//     "link": "/tags/lifestyle"
+//   },
+//   {
+//     "name": "For PhD",
+//     "link": "/categories/tech"
+//   },
+//   {
+//     "name": "For Short courses",
+//     "link": "/privacy"
+//   },
+//   {
+//     "name": "Other",
+//     "link": "/terms-of-service"
+//   }
+// ]
+
+
 const Post = ({
   post: {
     slug,
     content,
-    frontMatter: { title, image, date, author, description },
+    title,
+    featured_image,
+    createdAt,
+    excerpt,
+    short_desc,
   },
-  authors,
   compact,
   status,
 }) => {
+  const [bgColor, setBgColor] = useState("");
+  const [textColor, setTextColor] = useState("");
+
+  // Function to generate a random background color
+  const getRandomColor = () => {
+    const letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  };
+
+  // Function to calculate text color based on background brightness
+  const getContrastColor = (bgColor) => {
+    // Convert hex color to RGB
+    const r = parseInt(bgColor.slice(1, 3), 16);
+    const g = parseInt(bgColor.slice(3, 5), 16);
+    const b = parseInt(bgColor.slice(5, 7), 16);
+
+    // Calculate luminance
+    const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+
+    // Return black for light backgrounds, white for dark backgrounds
+    return luminance > 0.5 ? "#000000" : "#FFFFFF";
+  };
+
+  // Set random background and text colors when the component mounts
+  useEffect(() => {
+    const randomBgColor = getRandomColor();
+    setBgColor(randomBgColor);
+    setTextColor(getContrastColor(randomBgColor));
+  }, []);
   return (
     <article className="bg-white d-flex flex-column h-100">
       {!compact && (
-        <div className="post-image">
+        <div className="post-image" style={{ backgroundColor: bgColor }}>
           <Link href={`/blog/${slug}`} className="d-block" title={title}>
-            <BlurImage
-              className="w-100 h-auto"
-              src={image}
-              alt={title}
-              width="368"
-              height="238"
-            />
+            {featured_image ? (
+              <BlurImage
+                className="w-100 h-auto"
+                src={featured_image}
+                alt={title}
+                width="368"
+                height="238"
+              />
+            ) : (
+              <div
+                style={{
+                  color: textColor,
+                }}
+                className="title"
+              >
+                {title}
+              </div>
+            )}
           </Link>
+
         </div>
       )}
       <div
-        className={`p-4 ${authors != "current" ? "pb-0" : ""} ${
-          status ? "position-relative" : ""
-        }`}
+        className={`p-4 ${status ? "position-relative" : ""
+          }`}
       >
         {status && <p className="post-badge mb-0">{status}</p>}
         <ul className={`post-meta list-inline mb-3 ${status ? "mt-3" : ""}`}>
           <li className="list-inline-item">
             <Calender className="me-1 align-bottom" />
-            {formatDate(date)}
+            {formatDate(createdAt)}
           </li>
           <li className="list-inline-item">•</li>
           <li className="list-inline-item">
@@ -59,78 +152,10 @@ const Post = ({
             </Link>
           </h3>
           <p className={`mb-0 line-clamp ${compact ? "clamp-2" : "clamp-3"}`}>
-            {truncateString(description, 150)}
+            {truncateString(short_desc, 150)}
           </p>
         </div>
       </div>
-      {authors != "current" &&
-        (compact ? (
-          <div className="post-author mt-auto p-4 pt-3">
-            <Link
-              href={`/author/${slugify(author)}`}
-              className="is-hoverable"
-              title={`Read all posts by - ${author}`}
-            >
-              {authors.map(
-                (authorPage, key) =>
-                  slugify(author) === authorPage.authorSlug && (
-                    <span className="d-inline-block" key={key}>
-                      <BlurImage
-                        src={authorPage.authorFrontMatter.image}
-                        alt={author}
-                        className="w-auto"
-                        width="26"
-                        height="26"
-                      />
-                    </span>
-                  )
-              )}
-            </Link>
-            <span className="ms-3 me-2">by</span>
-            <Link
-              className="text-link"
-              href={`/author/${slugify(author)}`}
-              title={`Read all posts by - ${author}`}
-            >
-              {author}
-            </Link>
-          </div>
-        ) : (
-          <div className="post-author d-flex mt-auto p-4">
-            <div className="flex-shrink-0">
-              <Link
-                href={`/author/${slugify(author)}`}
-                className="is-hoverable"
-                title={`Read all posts by - ${author}`}
-              >
-                {authors.map(
-                  (authorPage, key) =>
-                    slugify(author) === authorPage.authorSlug && (
-                      <span className="d-inline-block rounded-circle" key={key}>
-                        <BlurImage
-                          src={authorPage.authorFrontMatter.image}
-                          alt={author}
-                          className="w-auto"
-                          width="42"
-                          height="42"
-                        />
-                      </span>
-                    )
-                )}
-              </Link>
-            </div>
-            <div className="flex-grow-1 ms-3">
-              <p className="mb-0 lh-base small">Written by</p>
-              <Link
-                className="text-link"
-                href={`/author/${slugify(author)}`}
-                title={`Read all posts by - ${author}`}
-              >
-                {author}
-              </Link>
-            </div>
-          </div>
-        ))}
     </article>
   );
 };

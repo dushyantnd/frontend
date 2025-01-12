@@ -118,7 +118,7 @@ const Header = () => {
                     }
                     alt={logoText}
                     className="img-fluid"
-                    width="110"
+                    width="160"
                     height="43"
                     priority
                   />

@@ -2,86 +2,30 @@
   "mainMenu": [
     {
       "name": "Home",
-      "link": "#",
-      "submenu": [
-        {
-          "name": "Home",
-          "link": "/"
-        },
-        {
-          "name": "Home Minimal",
-          "link": "/home-2"
-        }
-      ]
+      "link": "/"
     },
     {
-      "name": "Featured",
-      "link": "/featured"
+      "name": "Jobs",
+      "link": "/hot-job"
     },
     {
-      "name": "Latest",
-      "link": "/blog"
+      "name": "Result",
+      "link": "/result"
     },
     {
-      "name": "About",
-      "link": "/about"
+      "name": "Admit Card",
+      "link": "/admit-card"
     },
     {
-      "name": "Pages",
-      "link": "#",
-      "submenu": [
-        {
-          "name": "Archive",
-          "link": "/blog/archive"
-        },
-        {
-          "name": "Author",
-          "link": "/author"
-        },
-        {
-          "name": "Author Single",
-          "link": "/author/ann-monika"
-        },
-        {
-          "name": "Elements",
-          "link": "/blog/elements"
-        },
-        {
-          "name": "Tags",
-          "link": "/tags"
-        },
-        {
-          "name": "Categories",
-          "link": "/categories"
-        },
-        {
-          "name": "Tag Single",
-          "link": "/tags/lifestyle"
-        },
-        {
-          "name": "Category Single",
-          "link": "/categories/tech"
-        },
-        {
-          "name": "Privacy",
-          "link": "/privacy"
-        },
-        {
-          "name": "Terms of service",
-          "link": "/terms-of-service"
-        }
-      ]
+      "name": "Answer Keys",
+      "link": "/answer-keys"
     },
     {
-      "name": "Contact",
-      "link": "/contact"
+      "name": "Scholarships",
+      "link": "scholarships"
     }
   ],
   "footerMenu": [
-    {
-      "name": "Terms of service",
-      "link": "/terms-of-service"
-    },
     {
       "name": "Privacy policy",
       "link": "/privacy"
