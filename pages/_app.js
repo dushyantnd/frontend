@@ -9,7 +9,7 @@ import { DM_Sans } from "next/font/google";
 import { useEffect, useState } from "react";
 import ReactGA from "react-ga4";
 
-const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_TRACKING_ID;
+const GA_TRACKING_ID = "G-JK3GHEG93K";
 const dm_sans = DM_Sans({
   weight: ["400", "500"],
   display: "swap",
