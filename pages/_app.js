@@ -7,7 +7,9 @@ import "@/styles/style.scss";
 import { ThemeProvider } from "next-themes";
 import { DM_Sans } from "next/font/google";
 import { useEffect, useState } from "react";
+import ReactGA from "react-ga4";
 
+const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_TRACKING_ID;
 const dm_sans = DM_Sans({
   weight: ["400", "500"],
   display: "swap",
@@ -19,6 +21,10 @@ export default function TushiApp({ Component, pageProps }) {
 
   useEffect(() => {
     import("bootstrap/js/dist/dropdown");
+    if (GA_TRACKING_ID) {
+      ReactGA.initialize(GA_TRACKING_ID);
+      ReactGA.send("pageview");
+    }
   }, []);
 
   return (
@@ -26,11 +32,10 @@ export default function TushiApp({ Component, pageProps }) {
       <ThemeProvider defaultTheme="light" attribute="class">
         <main className={`${dm_sans.className} d-flex flex-column bg-body`}>
           <Header />
-
+          {/* Google Analytics */}
           <section className="mb-auto">
             <Component {...pageProps} />
           </section>
-
           <Footer />
         </main>
       </ThemeProvider>
