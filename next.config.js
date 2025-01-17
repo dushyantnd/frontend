@@ -1,10 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  i18n: {
-    locales: ["en", "hi"], // Supported languages
-    defaultLocale: "en", // Default language
-    localeDetection: true, // Automatically detect the user's language
-  },
   reactStrictMode: true, // Enables strict mode for React
   swcMinify: true, // Uses SWC for faster builds and smaller output
   output: 'standalone', // Outputs a standalone build folder for deployment

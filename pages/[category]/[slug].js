@@ -120,7 +120,6 @@ export default function PostPage({
                   alt={currentPost?.data?.title}
                   width={`650`}
                   height={`400`}
-                  onLoad={() => console.log('Image has loaded')}
                 />
               </div>
             )}
