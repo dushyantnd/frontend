@@ -1,14 +1,14 @@
 {
   "metaData": {
-    "title" : "Uspupils | Sarkari Exam , Sarkari Result 2025 , Scholarships, Abroad scholarships ",
+    "title" : "Uspupils | Govt  Jobs 2025 , Scholarships, Abroad scholarships ",
     "description" : "Sarkari Result,recruitment 2025 and scholarships provides Rojgar, vacancies, jobs details of all govt exam and scholarships.",
     "author" : "Admin",
     "keyword" : "Sarkari Result, scholarships,recruitment 2025, Uspupils, Sarkari Exam, Sarkari Result 2025, Scholarships, Abroad scholarships ",
-    "ogImage" : "/images/ogimage.jpg"
+    "ogImage" : "https://www.uspupils.com/_next/image?url=%2Fimages%2Flogo.png&w=256&q=75"
   },
-  "baseURL" : "https://uspupils.com/",
-  "logo" : "/images/logo.png",
-  "logo_light" : "/images/logo-light.png",
+  "baseURL" : "https://www.uspupils.com/",
+  "logo" : "https://www.uspupils.com/_next/image?url=%2Fimages%2Flogo.png&w=256&q=75",
+  "logo_light" : "https://www.uspupils.com/_next/image?url=%2Fimages%2Flogo.png&w=256&q=75",
   "logoText" : "Uspupils",
   "favicon" : "/images/favicon.png",
   "postPerPage" : 6,

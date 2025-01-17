@@ -21,7 +21,7 @@ export default function TushiApp({ Component, pageProps }) {
 
   useEffect(() => {
     import("bootstrap/js/dist/dropdown");
-    if (GA_TRACKING_ID) {
+    if (GA_TRACKING_ID && process.env.NODE_ENV === "production") {
       ReactGA.initialize(GA_TRACKING_ID);
       ReactGA.send("pageview");
     }

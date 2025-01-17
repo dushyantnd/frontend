@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.uspupils.com/sitemap.xml
+RSS: https://www.uspupils.com/rss.xml
