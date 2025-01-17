@@ -1,21 +1,6 @@
-const { translate } = require("libretranslate");
-
-
 
 export default function BlogPost({ post }) {
     // Render the blog content
-    async function translateText(text, targetLanguage) {
-        const response = await translate(text, {
-          from: "en",
-          to: 'hi',
-        });
-        return response;
-      }
-      
-      (async () => {
-        const translatedText = await translateText("Hello, how are you?", "hi");
-        console.log(`Translated text: ${translatedText}`);
-      })();
 
     return (
       <div>
