@@ -10,13 +10,13 @@ const Search = () => {
   // Get All Posts from API
   const [allPosts, setAllPosts] = useState([]);
   useEffect(() => {
-    const getResults = async () => {
-      const res = await fetch("/api/search");
-      const post = await res.json();
-      const posts = JSON.parse(post);
-      setAllPosts(posts);
-    };
-    getResults();
+    // const getResults = async () => {
+    //   const res = await fetch("/api/search");
+    //   const post = await res.json();
+    //   const posts = JSON.parse(post);
+    //   setAllPosts(posts);
+    // };
+    // getResults();
   }, []);
 
   // Get Post Tags
@@ -137,7 +137,7 @@ const Search = () => {
           <div className="section-title mb-3 pb-1">
             <p className="title h4 mb-0">Popular topics</p>
           </div>
-          <ul className="taxonomy-lists list-unstyled d-flex flex-wrap gap-2">
+          {/* <ul className="taxonomy-lists list-unstyled d-flex flex-wrap gap-2">
             {uniqueTags.slice(0, 13).map((item, i) => (
               <li
                 key={i}
@@ -174,7 +174,7 @@ const Search = () => {
                 </svg>
               </Link>
             </li>
-          </ul>
+          </ul> */}
         </div>
 
         <div className="mt-4 pt-2 is-hidden recent-posts">
@@ -182,7 +182,7 @@ const Search = () => {
             <div className="section-title mb-3 pb-1">
               <p className="title h4 mb-0">Recent posts</p>
             </div>
-            <div className="row gy-4">
+            {/* <div className="row gy-4">
               {allPosts.slice(0, 5).map((post, i) => (
                 <div className="col-md-6" key={i}>
                   <article className="row gx-3 align-items-start position-relative">
@@ -220,7 +220,7 @@ const Search = () => {
                   </article>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

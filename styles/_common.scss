@@ -5,7 +5,7 @@ body {
 }
 body {
   color: $gray;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.6;
   font-weight: 400;
   background-color: $white;
@@ -27,6 +27,9 @@ body {
 }
 :focus {
   outline: 0;
+}
+.p-4 {
+  padding: 1rem !important;
 }
 
 // default styles

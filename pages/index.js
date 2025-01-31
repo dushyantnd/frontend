@@ -58,6 +58,25 @@ const Home = ({ homepage, posts, authors, allCategory }) => {
   // Post per Page
   const postPerPage = Math.ceil(posts.data.length / siteConfig.postPerPage);
 
+  const subscribeUser = async () => {
+    const registration = await navigator.serviceWorker.ready;
+    const subscription = await registration.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: 'BFgSzKMBbhbKLiZY4P6aNW2KT4WzRlEjMRSjCtevphRIdjVZ-dZfQYXkSocNcN2U748asU1l6zAH8c97jSdKthY',
+    });
+
+    // Send subscription to the backend
+    await fetch('http://localhost:3000/api/webpush/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(subscription),
+    });
+
+    console.log('User is subscribed:', subscription);
+};
+
+// Trigger subscription
+subscribeUser();
   return (
     <Layout>
       {/* All Categories */}
@@ -77,7 +96,7 @@ const Home = ({ homepage, posts, authors, allCategory }) => {
               <div className="row g-3 taxonomy-lists">
                 {uniqueCategory?.data?.map((item, i) => (
                   item?.menu == 1 && (
-                    <div className="col-md-4 col-6" key={i}>
+                    <div className="col-md-3 col-6 custom-mobile-col" key={i}>
                       <Link
                         href={`/${item?.slug}`}
                         className="bg-body text-dark px-3 py-2 d-flex lead"
@@ -170,7 +189,6 @@ const Home = ({ homepage, posts, authors, allCategory }) => {
                 <BannerShape />
                 <Markdown content={banner.title} inline={true} />
               </h1>
-
               <p className="lead mt-4 mb-0">
                 <Markdown content={banner.subtitle} inline={true} />
               </p>
@@ -197,7 +215,7 @@ const Home = ({ homepage, posts, authors, allCategory }) => {
           </div>
           <div className="row gy-5 gx-md-5">
             {posts.data.map((post, i) => (
-              <div key={i} className="col-lg-4 col-md-6">
+              <div key={i} className="col-lg-3 col-md-6">
                 <Post post={post} authors={authors} />
               </div>
             ))}
@@ -280,7 +298,7 @@ const Home = ({ homepage, posts, authors, allCategory }) => {
 
       {/* Post of the Month */}
 
-      <section
+      {/* <section
         className="post-of-the-month"
         style={{
           backgroundImage: `url(${postOfTheMonth.featured_image})`,
@@ -319,7 +337,7 @@ const Home = ({ homepage, posts, authors, allCategory }) => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
     </Layout>
   );
@@ -328,8 +346,8 @@ export default Home;
 
 // Export Props
 export const getStaticProps = async () => {
-  const response = await axios.get("https://api.uspupils.com/api/posts/");
-  const categories = await axios.get("https://api.uspupils.com/api/categories");
+  const response = await axios.get(`${process.env.API_BASE_URL}api/posts?limit=20`);
+  const categories = await axios.get(`${process.env.API_BASE_URL}api/categories`);
   return {
     props: {
       homepage: getSinglePage("content/_index.md"),

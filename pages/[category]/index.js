@@ -15,7 +15,7 @@ const CategoryPage = ({ category, posts }) => {
           <div className="container">
             <div className="row gy-5 gx-md-5">
                {posts.map((post, i) => (
-                <div key={i} className="col-lg-4 col-md-6">
+                <div key={i} className="col-lg-3 col-md-6">
                   <Post post={post} />
                 </div>
               ))} 
@@ -47,7 +47,7 @@ const CategoryPage = ({ category, posts }) => {
   
   async function fetchPostsByCategory(category) {
     // Replace with your actual API endpoint
-    const response = await fetch(`https://api.uspupils.com/api/posts/category/${category}`);
+    const response = await fetch(`${process.env.API_BASE_URL}api/posts/category/${category}?limit=100`);
     if (!response.ok) {
       return null;
     }

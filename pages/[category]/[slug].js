@@ -54,7 +54,7 @@ export default function PostPage({
         "@type": "ListItem",
         "position": 2,
         "name": category,
-        "item": `${siteConfig.baseURL}/${slugify(category)}`
+        "item": `${siteConfig.baseURL}${slugify(category)}`
       },
       {
         "@type": "ListItem",
@@ -69,13 +69,13 @@ export default function PostPage({
     "@type": "ImageObject",
     "contentUrl": currentPost?.data?.featured_image || "https://example.com/photos/default.jpg",
     "license": `${siteConfig.baseURL}/license`,
-    "acquireLicensePage": `${siteConfig.baseURL}/how-to-use-images`,
+    "acquireLicensePage": `${siteConfig.baseURL}blog/${currentPost?.data?.slug}`,
     "creditText": "Default Credit",
     "creator": {
       "@type": "Person",
-      "name": currentPost?.data?.author || "Default Author"
+      "name": currentPost?.data?.author || "uspupils"
     },
-    "copyrightNotice": currentPost?.data?.author || "Default Author"
+    "copyrightNotice": currentPost?.data?.author || "uspupils"
   };
 
   return (
@@ -83,6 +83,7 @@ export default function PostPage({
       metaTitle={currentPost?.data?.meta_title}
       metaDescription={currentPost?.data?.meta_desc}
       ogImage={currentPost?.data?.featured_image}
+      ogUrl= {siteConfig.baseURL +"/blog/"+ currentPost?.data?.slug }
     >
       <section className="bg-body">
         <div className="container">

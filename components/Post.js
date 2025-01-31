@@ -56,6 +56,7 @@ const Post = ({
   post: {
     slug,
     content,
+    category_id,
     title,
     featured_image,
     createdAt,
@@ -102,7 +103,7 @@ const Post = ({
     <article className="bg-white d-flex flex-column h-100">
       {!compact && (
         <div className="post-image" style={{ backgroundColor: bgColor }}>
-          <Link href={`/blog/${slug}`} className="d-block" title={title}>
+          <Link href={`/${category_id?.slug}/${slug}`} className="d-block" title={title}>
             {featured_image ? (
               <BlurImage
                 className="w-100 h-auto"
@@ -144,7 +145,7 @@ const Post = ({
         <div className="position-relative">
           <h3 className="h4 post-title mb-2 line-clamp clamp-2">
             <Link
-              href={`/blog/${slug}`}
+              href={`/${category_id?.slug}/${slug}`}
               className="text-link stretched-link"
               title={title}
             >

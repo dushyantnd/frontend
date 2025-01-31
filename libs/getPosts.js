@@ -32,7 +32,7 @@ import { sortByDate } from "@/utils/sortByDate";
 export const getPosts = async () => {
   try {
     // Fetch data from the API
-    const response = await axios.get("https://api.uspupils.com/api/posts/");
+    const response = await axios.get(`${process.env.API_BASE_URL}api/posts/`);
     
     // Ensure the data is sorted before returning
    // const posts = response.data.sort(sortByDate);
@@ -46,7 +46,7 @@ export const getPosts = async () => {
 export const getPostBySlug = async (slug) => {
   try {
     // Fetch data from the API
-    const response = await axios.get(`https://api.uspupils.com/api/posts/slug/${slug}`);
+    const response = await axios.get(`${process.env.API_BASE_URL}api/posts/slug/${slug}`);
     return response.data;
   } catch (error) {
     console.error("Error fetching posts:", error.message);

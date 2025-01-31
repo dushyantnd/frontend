@@ -4,3 +4,12 @@
 @import "common";
 @import "header";
 @import "main";
+@media (max-width: 700px) {
+    .custom-mobile-col {
+      flex: 0 0 auto !important;
+      max-width: 50% !important;
+    }
+    .flex-grow-1{
+        font-size: 14px;
+    }
+  }
