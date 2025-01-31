@@ -25,16 +25,16 @@ export default function TushiApp({ Component, pageProps }) {
       ReactGA.initialize(GA_TRACKING_ID);
       ReactGA.send("pageview");
     }
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker
-        .register('/sw.js')
-        .then(registration => {
-          console.log('Service Worker registered:', registration);
-        })
-        .catch(error => {
-          console.error('Service Worker registration failed:', error);
-        });
-    }
+    // if ('serviceWorker' in navigator) {
+    //   navigator.serviceWorker
+    //     .register('/sw.js')
+    //     .then(registration => {
+    //       console.log('Service Worker registered:', registration);
+    //     })
+    //     .catch(error => {
+    //       console.error('Service Worker registration failed:', error);
+    //     });
+    // }
   }, []);
 
   return (

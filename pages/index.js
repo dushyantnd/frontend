@@ -76,7 +76,7 @@ const Home = ({ homepage, posts, authors, allCategory }) => {
 };
 
 // Trigger subscription
-subscribeUser();
+//subscribeUser();
   return (
     <Layout>
       {/* All Categories */}
